@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/pingpong/GamePanel.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>31</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/alkam/OneDrive/Documents/NetBeansProjects/PingPong/src/pingpong/Game.java</file>
+            <file>file:/C:/Users/alkam/OneDrive/Documents/NetBeansProjects/PingPong/src/utilz/HelpMethods.java</file>
+            <file>file:/C:/Users/alkam/OneDrive/Documents/NetBeansProjects/PingPong/src/entities/Entity.java</file>
+            <file>file:/C:/Users/alkam/OneDrive/Documents/NetBeansProjects/PingPong/src/entities/ScoreBoard.java</file>
+            <file>file:/C:/Users/alkam/OneDrive/Documents/NetBeansProjects/PingPong/src/inputs/KeyBoardInputs.java</file>
+            <file>file:/C:/Users/alkam/OneDrive/Documents/NetBeansProjects/PingPong/src/entities/Racket.java</file>
+            <file>file:/C:/Users/alkam/OneDrive/Documents/NetBeansProjects/PingPong/src/pingpong/GameWindow.java</file>
+            <file>file:/C:/Users/alkam/OneDrive/Documents/NetBeansProjects/PingPong/src/inputs/MouseInputs.java</file>
+            <file>file:/C:/Users/alkam/OneDrive/Documents/NetBeansProjects/PingPong/src/utilz/LoadSave.java</file>
+            <file>file:/C:/Users/alkam/OneDrive/Documents/NetBeansProjects/PingPong/src/entities/Ball.java</file>
+            <file>file:/C:/Users/alkam/OneDrive/Documents/NetBeansProjects/PingPong/src/pingpong/PingPong.java</file>
+            <file>file:/C:/Users/alkam/OneDrive/Documents/NetBeansProjects/PingPong/src/pingpong/GamePanel.java</file>
+        </group>
+    </open-files>
+</project-private>
