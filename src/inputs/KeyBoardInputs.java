@@ -1,6 +1,7 @@
 
 package inputs;
 
+import gamestates.Gamestate;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import pingpong.GamePanel;
@@ -19,54 +20,31 @@ public class KeyBoardInputs implements KeyListener{
     
     @Override
     public void keyReleased(KeyEvent e) {
-        switch(e.getKeyCode()) {
-            //player 1 buttons
-            case KeyEvent.VK_W:
-                gamePanel.getGame().getPlayer1().setUp(false);
+        switch(Gamestate.state) {
+            case MENU:
+                gamePanel.getGame().getMenu().keyReleased(e);
                 break;
-            
-            case KeyEvent.VK_S:
-                gamePanel.getGame().getPlayer1().setDown(false);
+            case PLAYING:
+                gamePanel.getGame().getPlaying().keyReleased(e);
                 break;
-            
-            //player 2  buttons
-            case KeyEvent.VK_UP:
-                gamePanel.getGame().getPlayer2().setUp(false);
+            default:
                 break;
-            
-            case KeyEvent.VK_DOWN:
-                gamePanel.getGame().getPlayer2().setDown(false);
-                break;
+                      
         }
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        switch(e.getKeyCode()) {
-            //ball buttons
-            case KeyEvent.VK_SPACE:
-                gamePanel.getGame().getBall().start();
+        switch(Gamestate.state) {
+            case MENU:
+                gamePanel.getGame().getMenu().keyPressed(e);
                 break;
-            
-            //player 1 buttons
-            case KeyEvent.VK_W:
-                gamePanel.getGame().getPlayer1().setUp(true);
+            case PLAYING:
+                gamePanel.getGame().getPlaying().keyPressed(e);
                 break;
-            
-            case KeyEvent.VK_S:
-                gamePanel.getGame().getPlayer1().setDown(true);
+            default:
                 break;
-            
-            //player 2  buttons
-            case KeyEvent.VK_UP:
-                gamePanel.getGame().getPlayer2().setUp(true);
-                break;
-            
-            case KeyEvent.VK_DOWN:
-                gamePanel.getGame().getPlayer2().setDown(true);
-                break;
-            
-                
+                      
         }
     }
 }

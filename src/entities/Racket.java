@@ -21,21 +21,7 @@ public class Racket extends Entity{
    
         this.color = (color == 'r')? Color.red : Color.blue;        
     }
-    
-    //an AI the follows the ball's movement
-    public void updateAI(Game game) {
-        Ball ball = game.getBall();
-        
-        //the center of y, y+height
-        float centerY = this.y + (this.height/2);
-        
-        float speed = 0;
-        if (centerY > ball.getY()) speed = playerSpeed * -1;
-        if (centerY < ball.getY()) speed = playerSpeed;
-        
-        if (CanMoveHere(this.y + speed, this.height)) this.y += speed;
-            
-    }
+   
     
     public void update() {
         updatePos();

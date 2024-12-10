@@ -1,11 +1,9 @@
 
 package pingpong;
 
-import entities.Ball;
-import entities.Racket;
-import entities.ScoreBoard;
-
-
+import gamestates.Gamestate;
+import gamestates.Menu;
+import gamestates.Playing;
 import java.awt.Graphics;
 
 
@@ -28,9 +26,8 @@ public class Game implements Runnable {
     public final static int PLAYER_WIDTH = GAME_WIDTH/40;
     
     //entities
-    private Ball ball;
-    private Racket player1, player2;
-    private ScoreBoard scoreBoard;
+    private Playing playing;
+    private Menu menu;
     
     
     
@@ -49,12 +46,9 @@ public class Game implements Runnable {
     }
     
     private void initClasses() {
-        ball = new Ball(GAME_WIDTH/2, GAME_HEIGHT/2, GAME_WIDTH/40, GAME_WIDTH/40);
         
-        scoreBoard = new ScoreBoard();
-        player1 = new Racket(PLAYER_WIDTH, GAME_HEIGHT/2, PLAYER_WIDTH,PLAYER_HEIGHT, 'b');
-        player2 = new Racket(GAME_WIDTH - (PLAYER_WIDTH*2), GAME_HEIGHT/2, PLAYER_WIDTH, PLAYER_HEIGHT, 'r');
-        
+        menu = new Menu(this);
+        playing = new Playing(this);
     }
     private void startGameLoop() {
         gameThread = new Thread(this);
@@ -112,23 +106,37 @@ public class Game implements Runnable {
     }
     
     public void update() {
-        ball.update(this);
-        player1.update();
-        player2.update();
-        //player1.updateAI(this);
-        //player2.updateAI(this);
+        switch(Gamestate.state) {
+            case MENU:
+                menu.update();
+                break;
+            case PLAYING:
+                playing.update();
+                break;
+            default:
+                break;
+        }
     }
     
     public void render(Graphics g) {
-        g.clearRect((GAME_WIDTH/2)-((GAME_WIDTH/400)), 0, GAME_WIDTH/200, GAME_HEIGHT);
-        scoreBoard.render(g);
-        ball.render(g);
-        player1.render(g);
-        player2.render(g);
+
+        switch(Gamestate.state) {
+            case MENU:
+                menu.draw(g);
+                break;
+            case PLAYING:
+                playing.draw(g);
+                break;
+            default:
+                break;
+        }
     }
     
-    public Racket getPlayer1() {return player1;}
-    public Racket getPlayer2() {return player2;}
-    public Ball getBall() {return ball;}
-    public ScoreBoard getScoreBoard() {return scoreBoard;}
+    public void windowFocusLost() {
+       
+    }
+    
+    public Menu getMenu() {return menu;}
+    public Playing getPlaying() {return playing;}
+    
 }

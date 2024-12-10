@@ -3,6 +3,7 @@ package utilz;
 
 import entities.Ball;
 import entities.Racket;
+import gamestates.Playing;
 import pingpong.Game;
 
 
@@ -33,34 +34,34 @@ public class HelpMethods {
     }
     
     //method to check if we hit the racket or didnt
-    public static void nextXMovement(Ball ball, float speed, Game game) {
+    public static void nextXMovement(Ball ball, float speed, Playing playing) {
         
         float nextX = ball.getX() + speed;
 
         
         //passed the player1's racket
-        if (nextX <= game.getPlayer1().getX()) {
-            game.getScoreBoard().increment(-1);
+        if (nextX <= playing.getPlayer1().getX()) {
+            playing.getScoreBoard().increment(-1);
             ball.reset();
         }
 
         //hit the player1 racket
-        else if (nextX <= game.getPlayer1().getX()+game.getPlayer1().getWidth()) {
-            if (HitPlayer1(ball, game.getPlayer1())) {
-                ball.setColor(game.getPlayer1().getColor());
+        else if (nextX <= playing.getPlayer1().getX()+playing.getPlayer1().getWidth()) {
+            if (HitPlayer1(ball, playing.getPlayer1())) {
+                ball.setColor(playing.getPlayer1().getColor());
                 return;
             }
         }
         //passed the player2's racket
-        else if (nextX+ball.getWidth() >= game.getPlayer2().getX() + game.getPlayer2().getWidth()){
-            game.getScoreBoard().increment(1);
+        else if (nextX+ball.getWidth() >= playing.getPlayer2().getX() + playing.getPlayer2().getWidth()){
+            playing.getScoreBoard().increment(1);
             ball.reset();
         }
         
         //hit the player2's racket
-        else if (nextX+ball.getWidth() >= game.getPlayer2().getX()) {
-            if (HitPlayer2(ball, game.getPlayer2())) {
-                ball.setColor(game.getPlayer2().getColor());
+        else if (nextX+ball.getWidth() >= playing.getPlayer2().getX()) {
+            if (HitPlayer2(ball, playing.getPlayer2())) {
+                ball.setColor(playing.getPlayer2().getColor());
                 return;
             }
         }

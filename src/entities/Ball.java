@@ -1,6 +1,7 @@
 
 package entities;
 
+import gamestates.Playing;
 import java.awt.Color;
 import java.awt.Graphics;
 import pingpong.Game;
@@ -33,10 +34,10 @@ public class Ball extends Entity{
         }
     }
     
-    public void update(Game game) {
+    public void update(Playing playing) {
         //update x and y positions
         nextYMovement(this, vecY);
-        nextXMovement(this, vecX, game);
+        nextXMovement(this, vecX, playing);
     }
     public void render(Graphics g) {
         g.setColor(this.getColor());
